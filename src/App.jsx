@@ -34,6 +34,9 @@ import { Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
 import About from './components/AboutPage/About'
 import LoadPage from './Pages/LoadPage'
+import NotFound from './Pages/NotFound'
+import FetchData from './Pages/FetchData'
+import Formik from './Pages/Formik'
 
 const App = () => {
   return (
@@ -42,7 +45,11 @@ const App = () => {
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/effect' element={<LoadPage/>}/>
+        <Route path='fetch' element={<FetchData/>}/>
+        <Route path='formik' element={<Formik/>}/>
         {/* <Route path='/contact' element={<About/>}/> */}
+
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </>
   )
