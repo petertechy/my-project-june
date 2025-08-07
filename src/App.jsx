@@ -37,6 +37,7 @@ import LoadPage from './Pages/LoadPage'
 import NotFound from './Pages/NotFound'
 import FetchData from './Pages/FetchData'
 import Formik from './Pages/Formik'
+import SignUp from './Pages/SignUp'
 
 const App = () => {
   return (
@@ -47,6 +48,7 @@ const App = () => {
         <Route path='/effect' element={<LoadPage/>}/>
         <Route path='fetch' element={<FetchData/>}/>
         <Route path='formik' element={<Formik/>}/>
+        <Route path='signup' element={<SignUp/>}/>
         {/* <Route path='/contact' element={<About/>}/> */}
 
         <Route path='*' element={<NotFound/>}/>
