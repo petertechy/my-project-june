@@ -35,4 +35,4 @@ const LoadPage = () => {
   )
 }
 
-export default LoadPage
+export default LoadPage;
