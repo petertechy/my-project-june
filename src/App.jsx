@@ -38,6 +38,7 @@ import NotFound from './Pages/NotFound'
 import FetchData from './Pages/FetchData'
 import Formik from './Pages/Formik'
 import SignUp from './Pages/SignUp'
+import Contact from './components/ContactPage/Contact'
 
 const App = () => {
   return (
@@ -49,6 +50,7 @@ const App = () => {
         <Route path='fetch' element={<FetchData/>}/>
         <Route path='formik' element={<Formik/>}/>
         <Route path='signup' element={<SignUp/>}/>
+        <Route path='contact' element={<Contact/>}/>
         {/* <Route path='/contact' element={<About/>}/> */}
 
         <Route path='*' element={<NotFound/>}/>
