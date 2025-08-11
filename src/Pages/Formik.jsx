@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
+import * as yup from "yup"
 
 const Formik = () => {
   let formik = useFormik({
@@ -12,38 +13,47 @@ const Formik = () => {
     onSubmit: (values) => {
       console.log(values);
     },
-    validate: (values) => {
-      let errors = {};
+    // validate: (values) => {
+    //   let errors = {};
 
-      if (values.firstname == "") {
-        errors.firstname = "This field is required";
-      } else if (values.firstname.length < 5) {
-        errors.firstname = "Must be greater than 5 characters";
-      }
+    //   if (values.firstname == "") {
+    //     errors.firstname = "This field is required";
+    //   } else if (values.firstname.length < 5) {
+    //     errors.firstname = "Must be greater than 5 characters";
+    //   }
 
-      if (values.lastname == "") {
-        errors.lastname = "This field is required";
-      }
+    //   if (values.lastname == "") {
+    //     errors.lastname = "This field is required";
+    //   }
 
-      if (values.email == "") {
-        errors.email = "This field is required";
-      }
+    //   if (values.email == "") {
+    //     errors.email = "This field is required";
+    //   }
 
-      if (!values.password) {
-        errors.password = "This field is required";
-      } else if (values.password.length < 8) {
-        errors.password = "Password must be at least 8 characters";
-      } else if (!/[A-Z]/.test(values.password)) {
-        errors.password = "Password must contain at least one uppercase letter";
-      } else if (!/[0-9]/.test(values.password)) {
-        errors.password = "Password must contain at least one number";
-      } else if (!/[!@#$%^&*]/.test(values.password)) {
-        errors.password =
-          "Password must contain at least one special character";
-      }
+    //   if (!values.password) {
+    //     errors.password = "This field is required";
+    //   } else if (values.password.length < 8) {
+    //     errors.password = "Password must be at least 8 characters";
+    //   } else if (!/[A-Z]/.test(values.password)) {
+    //     errors.password = "Password must contain at least one uppercase letter";
+    //   } else if (!/[0-9]/.test(values.password)) {
+    //     errors.password = "Password must contain at least one number";
+    //   } else if (!/[!@#$%^&*]/.test(values.password)) {
+    //     errors.password =
+    //       "Password must contain at least one special character";
+    //   }
 
-      return errors;
-    },
+    //   return errors;
+    // },
+
+    validationSchema:yup.object({
+      firstname:yup.string().required("This field is required").min(5, "Minimum of 5 characters"),
+      lastname: yup.string().required("This field is required"),
+      email: yup.string().required("This field is required").email("This is not a valid email"),
+      password: yup.string().required("This field is required")
+    })
+
+
   });
   console.log(formik.touched);
 
