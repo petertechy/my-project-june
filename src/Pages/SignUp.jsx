@@ -17,9 +17,11 @@ const SignUp = () => {
         axios.post(url, user)
         .then((response)=>{
             console.log(response)
-            // if(response.data.status === true){
-            //     navigate("/sign-in")
-            // }
+            if(response.data.status === true){
+                navigate("/signin")
+            }else{
+                console.log("Wrong Credentials")
+            }
         })
         .catch((error)=>{
             console.log(error)
