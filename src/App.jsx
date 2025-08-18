@@ -41,6 +41,8 @@ import SignUp from './Pages/SignUp'
 import Contact from './components/ContactPage/Contact'
 import StudentList from './Pages/StudentList'
 import SignIn from './Pages/SignIn'
+import ClassReact from './Pages/ClassReact'
+import Ref from './Pages/Ref'
 
 const App = () => {
   return (
@@ -55,6 +57,8 @@ const App = () => {
         <Route path='signin' element={<SignIn/>}/>
         <Route path='contact' element={<Contact/>}/>
         <Route path='student-list' element={<StudentList/>}/>
+        <Route path='class' element={<ClassReact title="Idris" age="20"/>}/>
+        <Route path='ref' element={<Ref/>}/>
         {/* <Route path='/contact' element={<About/>}/> */}
 
         <Route path='*' element={<NotFound/>}/>
