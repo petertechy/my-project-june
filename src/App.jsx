@@ -30,7 +30,7 @@
 // export default App;
 
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
 import About from './components/AboutPage/About'
 import LoadPage from './Pages/LoadPage'
@@ -43,8 +43,10 @@ import StudentList from './Pages/StudentList'
 import SignIn from './Pages/SignIn'
 import ClassReact from './Pages/ClassReact'
 import Ref from './Pages/Ref'
+import Dashboard from './Pages/Dashboard'
 
 const App = () => {
+  const token = localStorage.token
   return (
     <>
       <Routes>
@@ -59,6 +61,7 @@ const App = () => {
         <Route path='student-list' element={<StudentList/>}/>
         <Route path='class' element={<ClassReact title="Idris" age="20"/>}/>
         <Route path='ref' element={<Ref/>}/>
+        <Route path='dashboard' element={token ? <Dashboard/>  : <Navigate to="/signin" />}/>
         {/* <Route path='/contact' element={<About/>}/> */}
 
         <Route path='*' element={<NotFound/>}/>
